@@ -3,12 +3,12 @@ import './Cart.css';
 
 const Cart = (props) => {
     const cart = props.cart;
-    console.log(cart);
+    // console.log(cart);
     // const total = cart.reduce( (total, prd) => total + prd.price , 0 );
     let total = 0;
     for (let i = 0; i < cart.length; i++) {
         const product = cart[i];
-        total = total + product.price;
+        total = total + product.price * product.quantity;
     }
 
     let shipping = 0;
@@ -30,9 +30,7 @@ const Cart = (props) => {
         return Number(precision)
     }
 
-    const order = () => {
-        document.getElementById('orderSuccess').innerHTML = ('order successful')
-    }
+
     return (
         <div className='order-cart'>
             <h3>Order Summary</h3>
@@ -42,8 +40,10 @@ const Cart = (props) => {
             <p>Shipping Cost:{shipping}</p>
             <p><small>Tax + VAT: {tax}</small></p>
             <h4>total:{grandTotal}</h4>
-            <button onClick={()=>order()}>Order</button>
-            <h2 id='orderSuccess'>.</h2>
+            <br/>
+            {
+                props.children
+            }
         </div>
     );
 };

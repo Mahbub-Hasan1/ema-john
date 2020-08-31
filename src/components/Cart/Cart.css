@@ -11,6 +11,11 @@
     font-size: 20px;
     line-height: 0px;
 }
+button{
+    width:130px;
+    color: #fff;
+    cursor: pointer;
+}
 .order-cart p{
     font-size: 17px;
     font-weight: 700;
